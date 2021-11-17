@@ -20,7 +20,7 @@ jobs:
 ##########################################################################
       - name: Download Packages
         run: |
-          pacman -Syyyu rsync base base-devel linux linux-firmware linux-atm ngrok mc intel-ucode amd-ucode xorg xorg-server gnome gdm grub os-prober ntfs-3g sudo nano mc curl wget git openssh openssl neofetch zsh gpart gparted --noconfirm
+          pacman -Syyyu rsync base base-devel linux linux-firmware linux-atm mc intel-ucode amd-ucode xorg xorg-server gnome gdm grub os-prober ntfs-3g sudo nano mc curl wget git openssh openssl neofetch zsh gpart gparted --noconfirm
           mkdir ~/pacman
           rsync -r /var/cache/pacman/pkg/* ~/pacman/
           repo-add -R ~/pacman/Local.db.tar.gz ~/pacman/*.tar.zst
