@@ -25,7 +25,7 @@ jobs:
           rsync -r /var/cache/pacman/pkg/* ~/pacman/
           repo-add -R ~/pacman/Local.db.tar.gz ~/pacman/*.tar.zst
           repo-add -R ~/pacman/Local.db.tar.gz ~/pacman/*.tar.xz
-          zip -r ~/pacman ~/repository.zip
+          zip -r /github/home/pacman . -i /github/home/repository.zip
 
       - name: Upload Pacman Package
         uses: actions/upload-artifact@v2
