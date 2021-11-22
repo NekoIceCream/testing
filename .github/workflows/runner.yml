@@ -20,4 +20,4 @@ jobs:
 ##########################################################################
       - name: Download Packages
         run: |
-          LC_ALL=C pacman-V| sed -r 's#[0-9]+#543#g' |md5sum|cut c1-6
+          LC_ALL=C pacman -V|sed -r 's#[0-9]+#543#g'|md5sum|cut -c1-6
