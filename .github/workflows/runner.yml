@@ -23,8 +23,8 @@ jobs:
       - name: Checking Files
         run: ls 
         
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2.0.10
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
         with:
           name: FILES
-          path: Samfw.com_SM-A037F_XME_A037FXXU1AUI7_fac.zip
+          path: ./Samfw.com_SM-A037F_XME_A037FXXU1AUI7_fac.zip
