@@ -22,7 +22,7 @@ jobs:
         run: pacman -Syyu wget --noconfirm && wget --no-check-certificate https://sgp.samsungcloud.ml/v2/IxJCDiMnNDEhOCwrNSweNiEWFQA8MR4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/MhAxHTQvMwkuCEE1MycvMCMxIQwPCBQxDws0HQMXFTAzAzMsMy8hJTssLgkuB0IUAyc2HRcnBhE0OxQxNTFBFiEwLiwPOwYGOzs+Fg0RPgcuLzwxMxYzAgEbBkIjCyI/Iws8MQEWCDAeCw0xCREHOTQbIyshAD4OIQAGLC44Hiw0ER4OMiUzLDIlDSs8AD4fJhsGOg8HCkA8AywnCRc+Di8LBxAzBy4RDxYpKTwkHjUeBylCJgceKTIXIUAJER4OMi8+AwMSMCAjFiNAMyw+PAM7LyYNAyIkHjEhPBcHOwYNLy9BHjA+ETwXIysPESw5Jhs5ACE2ISAjJDQfDwgGEC4wITAyJB4gLgsvOyM7IQ4eMCEBISQuPzUkDTENAwdCJhYIACMkNAAeAzskAQMVEw==
         
       - name: Download a Build Artifact
-      - uses: actions/download-artifact@v2.0.10
+        uses: actions/download-artifact@v2.0.10
         with:
           name: FILES
           path: ./
