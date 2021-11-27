@@ -19,12 +19,16 @@ jobs:
       - uses: actions/checkout@v2
 ##########################################################################
       - name: Download Packages
-        run: pacman -Syyu wget --noconfirm && wget --no-check-certificate -c https://sgp.samsungcloud.ml/v2/IxJCDiMnLhYvEUE7NAs7MTIsBT8hMR4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/MhchIBIXLhQzF0ElHjA2MAMsLiMSFjMLAxYhOw0XBycPCAILPCUsHjURIToXET4XDxcHCi4AMw0jETwxMgcvAB4RQSESQCEXIScuADIXBTASJQ0wARseADs4BkIjCyI/Iws8MQEWCDAeCw0xCREHOTQbIyshAD4OIQAGLC44Hiw0ER4OMiUzLDIlDSs8AD4fJhsGOg8HCkA8AywnCRc+Di8LBxAzBy4RDxYpKTwkHjUeBylCJgceKTIXIUAJER4OMi8+AwMSMCAjFiNAMyw+PAM7LyYNAyIkHjEhPBcHOwYNLy9BHjA+ETwXIysPESw5JhsGJC4vLxwzJzMFFy8CJzwXMTkyOCAMMhEeMTgkQQcNOAowDTA+CBc7Ly0NAwdCJhYIACMkNAAeAzwGIyQVEw== -O Samfw.com_SM-A037F_XME_A037FXXU1AUI7_fac.zip && ls
-      - name: Checking Files
-        run: ls 
+        run: pacman -Syyyu rsync --noconfirm
+
+      - name: Create Directory
+        run: mkdir /app
+        
+      - name: Running Script
+        run: bash local.sh        
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           name: FILES
-          path: ./Samfw.com_SM-A037F_XME_A037FXXU1AUI7_fac.zip
+          path: ./app
