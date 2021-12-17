@@ -21,9 +21,6 @@ jobs:
       - name: Download Packages
         run: pacman -Syyyu wget --noconfirm
 
-      - name: Create Directory
-        run: mkdir /app && cd /app
-        
       - name: Running Script
         run: bash local.sh        
         
