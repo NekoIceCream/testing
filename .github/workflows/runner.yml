@@ -25,7 +25,7 @@ jobs:
       - name: update
         run: sudo apt update
       - name: Download
-        run: sudo apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends ${PACKAGES} | grep "^\w")   
+        run: sudo apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends live-build | sudo grep "^\w")   
       - name: ls
         run: ls
         
