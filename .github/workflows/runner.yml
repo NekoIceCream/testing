@@ -20,7 +20,7 @@ jobs:
 ##########################################################################
       - name: RUN
         run: |
-         pacman -Syu sudo go git curl wget 
+         pacman -Syu sudo go git curl wget base-devel linux-firmware --noconfirm
          useradd -m tmp
          echo "tmp ALL=(ALL) NOPASSD: ALL" >> /etc/sudoers
          su - tmp
