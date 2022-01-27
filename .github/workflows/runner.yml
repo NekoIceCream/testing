@@ -9,23 +9,35 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    #container:
-      #image: archlinux
-      #options: --privileged
-      #volumes:
-        #- /sys/fs/cgroup:/sys/fs/cgroup
+    container:
+      image: archlinux
+      options: --privileged
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup
 
     steps:
       - uses: actions/checkout@v2
 ##########################################################################
-
-      - name: Running Script
-        run: PACKAGES="live-build"
-
-      - name: update
-        run: sudo apt update
-      - name: Download
-        run: sudo apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends live-build | sudo grep "^\w")   
-      - name: ls
-        run: ls
-        
+      - name: RUN
+        run: |
+         pacman -Syu sudo go git curl wget 
+         useradd -m tmp
+         echo "tmp ALL=(ALL) NOPASSD: ALL" >> /etc/sudoers
+         su - tmp
+         git clone https://aur.archlinux.org/yay.git
+         cd yay
+         makepkg -si --noconfirm
+         yay linux-xanmod-edge --noanswerdiff
+         yay linux-xanmod-edge-headers --noanswerdiff
+         
+         - name: Upload a Build Artifact
+           uses: actions/upload-artifact@v2.3.1
+           with:
+               name: linux-xanmod-edge
+               path: ~/.cache/yay/linux-xanmod-edge/*.pkg.tar.zst
+         
+         - name: Upload a Build Artifact
+           uses: actions/upload-artifact@v2.3.1
+           with:
+               name: linux-xanmod-edge
+               path: ~/.cache/yay/linux-xanmod-edge-headers/*.pkg.tar.zst
