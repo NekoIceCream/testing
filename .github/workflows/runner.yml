@@ -20,24 +20,9 @@ jobs:
 ##########################################################################
       - name: RUN
         run: |
-         pacman -Syu sudo go git curl wget base-devel linux-firmware --noconfirm
-         useradd -m tmp
-         echo "tmp ALL=(ALL) NOPASSD: ALL" >> /etc/sudoers
-         su - tmp
-         git clone https://aur.archlinux.org/yay.git
-         cd yay
-         makepkg -si --noconfirm
-         yay linux-xanmod-edge --noanswerdiff
-         yay linux-xanmod-edge-headers --noanswerdiff
-         
-         - name: Upload a Build Artifact
-           uses: actions/upload-artifact@v2.3.1
-           with:
-               name: linux-xanmod-edge
-               path: ~/.cache/yay/linux-xanmod-edge/*.pkg.tar.zst
-         
-         - name: Upload a Build Artifact
-           uses: actions/upload-artifact@v2.3.1
-           with:
-               name: linux-xanmod-edge
-               path: ~/.cache/yay/linux-xanmod-edge-headers/*.pkg.tar.zst
+         pacman -Syu sudo go git curl wget base-devel linux-atm linux linux-firmware --noconfirm
+         wget https://github.com/xanmod/linux/archive/5.15.17-xanmod2-tt.tar.gz
+         tar -xf 5.15.17-xanmod2-tt.tar.gz
+         cd linux-5.15.17-xanmod2-tt
+         make 
+         ls
