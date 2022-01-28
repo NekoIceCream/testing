@@ -23,6 +23,7 @@ jobs:
          pacman -Syu sudo go git curl wget base-devel linux-atm linux linux-firmware --noconfirm
          wget https://github.com/xanmod/linux/archive/5.15.17-xanmod2-tt.tar.gz
          tar -xf 5.15.17-xanmod2-tt.tar.gz
+         mv .config linux-5.15.17-xanmod2-tt
          cd linux-5.15.17-xanmod2-tt
          make 
          ls
