@@ -34,7 +34,7 @@ jobs:
              ls
              
       - name: Upload
-        uses: actions/upload-artifact@2.3.1
+        uses: actions/upload-artifact@v2.3.1
         with:
            name: BUILD
            path: linux-5.15.17-xanmod2-tt
