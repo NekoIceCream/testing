@@ -26,8 +26,10 @@ jobs:
              wget https://github.com/xanmod/linux/archive/5.15.17-xanmod2-tt.tar.gz 
              tar -xf 5.15.17-xanmod2-tt.tar.gz
              mv .config linux-5.15.17-xanmod2-tt
-             cd linux-5.15.17-xanmod2-tt
       - name: Build
         run: |
+             cd linux-5.15.17-xanmod2-tt
              make 
              ls
+             cd ..
+             zip -xr build.zip linux-5.15.17-xanmod2-tt
